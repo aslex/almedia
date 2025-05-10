@@ -8,11 +8,12 @@ export const Container = styled.div`
 `;
 
 export const Button = styled.button`
-  height: 3rem;
+  height: ${(props) => (props.size === "small" ? "2rem" : "3rem")};
   min-width: "5rem";
+  width: 90%;
   padding: 0.5rem;
   border-radius: 0.4rem;
-  border-style: none;
+  border: 1px solid gray;
   background-color: #ffffff80;
   font-weight: bold;
   &:hover {

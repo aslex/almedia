@@ -7,11 +7,18 @@ function BoardContextProvider({ children }) {
   const [toggleColumnInput, setToggleColumnInput] = useState(false);
   const [toggleTaskInput, setToggleTaskInput] = useState(false);
   const [columns, setColumns] = useState();
+  const [activeColumn, setActiveColumn] = useState();
   const defaultColumns = [
     {
       id: uuidv4(),
       title: "To Do",
-      tasks: [],
+      tasks: [
+        {
+          id: uuidv4(),
+          title: "example task",
+          body: "description of the task",
+        },
+      ],
     },
     {
       id: uuidv4(),
@@ -49,6 +56,8 @@ function BoardContextProvider({ children }) {
         setToggleColumnInput,
         toggleTaskInput,
         setToggleTaskInput,
+        activeColumn,
+        setActiveColumn,
       }}
     >
       {children}

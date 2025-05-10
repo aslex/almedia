@@ -5,10 +5,9 @@ import Input from "./Input.jsx";
 import { Container, Button } from "./KanbanBoard.styled.js";
 
 const KanbanBoard = () => {
-  const { columns, setToggleColumnInput, toggleColumnInput } =
+  const { columns, setToggleColumnInput, toggleColumnInput, toggleTaskInput } =
     useContext(BoardContext);
-  console.log("col", columns);
-  console.log("type", typeof columns);
+
   if (!columns) return;
   return (
     <Container>
@@ -17,10 +16,11 @@ const KanbanBoard = () => {
           return <Column data={c} key={c.id} />;
         })}
 
-      <Button type="button" onClick={setToggleColumnInput}>
+      <Button type="button" onClick={() => setToggleColumnInput(true)}>
         Add Column
       </Button>
       {toggleColumnInput && <Input type="column" />}
+      {toggleTaskInput && <Input type="task"/>}
     </Container>
   );
 };
